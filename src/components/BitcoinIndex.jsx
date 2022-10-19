@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function BitcoinIndex({ currency }) {
   const [price, setPrice] = useState();
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   // useEffect(() => {
   //   console.log(`updated count to ${count}`)
@@ -19,15 +19,15 @@ function BitcoinIndex({ currency }) {
     fetch(`https://api.coindesk.com/v1/bpi/currentprice/${currency}.json`)
       .then((res) => res.json())
       .then((data) => setPrice(data.bpi[currency].rate));
-  }, []);
+  }, [currency]);
 
-  useEffect(() => {
-    console.log("any state or prop change");
-  });
+  // useEffect(() => {
+  //   console.log("any state or prop change");
+  // });
 
-  useEffect(() => {
-    console.log(`count has changed: ${count}`);
-  }, [count]);
+  // useEffect(() => {
+  //   console.log(`count has changed: ${count}`);
+  // }, [count]);
 
   return (
     <>
@@ -38,7 +38,7 @@ function BitcoinIndex({ currency }) {
       ) : (
         <h3>Loading...</h3>
       )}
-      <button onClick={() => setCount(count + 1)}>{count} Upvotes</button>
+       {/* <button onClick={() => setCount(count + 1)}>{count} Upvotes</button> */} 
     </>
   );
 }
