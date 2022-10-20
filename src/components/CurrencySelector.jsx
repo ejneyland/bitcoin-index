@@ -9,7 +9,7 @@ function CurrencySelector({ currency, setCurrency }) {
   useEffect(() => {
     console.log("mounted");
     fetch(
-      'https://justcors.com/tl_fc40d7a/https://api.coindesk.com/v1/bpi/supported-currencies.json'
+      "https://justcors.com/l_wo6bngf1w/https://api.coindesk.com/v1/bpi/supported-currencies.json"
     )
       .then((res) => res.json())
       .then((data) => setCurrencies(data));
@@ -20,7 +20,7 @@ function CurrencySelector({ currency, setCurrency }) {
       value={currency}
       onChange={(event) => setCurrency(event.target.value)}
     >
-      {currencies.map(cur => <option value={cur.currency}>{cur.currency} {cur.country}</option>)}
+      {currencies.map((cur, index) => <option key={index} value={cur.currency}>{cur.currency} {cur.country}</option>)}
     </select>
   ) : (
     <p>Loading...</p>
